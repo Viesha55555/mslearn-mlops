@@ -38,7 +38,7 @@ def get_csvs_df(path):
 # TO DO: add function to split data
 def split_data(df):
     # split data
-    if not df:
+    if df.empty:
         raise RuntimeError(f"No dataframe provided. Beep boop bop..")
         
     X, y = df[['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']].values, df['Diabetic'].values
