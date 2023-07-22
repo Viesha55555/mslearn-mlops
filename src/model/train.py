@@ -3,8 +3,10 @@
 import argparse
 import glob
 import os
-
 import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+import mlflow as mlflow
 
 from sklearn.linear_model import LogisticRegression
 
@@ -12,7 +14,7 @@ from sklearn.linear_model import LogisticRegression
 # define functions
 def main(args):
     # TO DO: enable autologging
-
+    mlflow.autolog()
 
     # read data
     df = get_csvs_df(args.training_data)
@@ -34,7 +36,16 @@ def get_csvs_df(path):
 
 
 # TO DO: add function to split data
+def split_data(df):
+    # split data
+    if not df:
+        raise RuntimeError(f"No dataframe provided. Beep boop bop..")
+        
+    X, y = df[['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']].values, df['Diabetic'].values
 
+
+#(array([0, 1], dtype=int64), array([6656, 3344], dtype=int64))
+    return train_test_split(X, y, test_size=0.30, random_state=0)
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
