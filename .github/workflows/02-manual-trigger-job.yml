@@ -1,16 +1,16 @@
 name: Manually trigger an Azure Machine Learning job
 
-variables:
-- name: RESOURCEGRP
-  value: rg-mltest
-- name: WORKSPACE
-  value: amlw-workspace-test
-- name: FILEPATH
-  value: src/job.yml
-
 on: [push]
 
 jobs:
+  variables:
+  - name: RESOURCEGRP
+    value: rg-mltest
+  - name: WORKSPACE
+    value: amlw-workspace-test
+  - name: FILEPATH
+    value: src/job.yml
+
   train:
     runs-on: ubuntu-latest
     steps:
