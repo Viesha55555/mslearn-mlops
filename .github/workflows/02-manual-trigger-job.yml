@@ -8,8 +8,7 @@ variables:
 - name: FILEPATH
   value: src/job.yml
 
-on:
-  workflow_dispatch:
+on: [push]
 
 jobs:
   train:
