@@ -2,8 +2,7 @@ name: Manually trigger an Azure Machine Learning job
 
 on: [push]
 
-jobs:
-  variables:
+variables:
   - name: RESOURCEGRP
     value: rg-mltest
   - name: WORKSPACE
@@ -11,6 +10,7 @@ jobs:
   - name: FILEPATH
     value: src/job.yml
 
+jobs:
   train:
     runs-on: ubuntu-latest
     steps:
