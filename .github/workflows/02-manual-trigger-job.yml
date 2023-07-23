@@ -2,14 +2,6 @@ name: Manually trigger an Azure Machine Learning job
 
 on: [push]
 
-variables:
-  - name: RESOURCEGRP
-    value: rg-mltest
-  - name: WORKSPACE
-    value: amlw-workspace-test
-  - name: FILEPATH
-    value: src/job.yml
-
 jobs:
   train:
     runs-on: ubuntu-latest
@@ -24,6 +16,6 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Trigger Azure Machine Learning job
       run: |
-        az ml job create --file ${{ variables.FILEPATH }} --resource-group ${{ variables.RESOURCEGRP }} --workspace-name ${{ variables.WORKSPACE }}
+        az ml job create --file 'src/job.yml' --resource-group 'rg-mltest' --workspace-name 'amlw-workspace-test'
 
 
