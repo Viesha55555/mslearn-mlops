@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  train:
+  - job: train
     runs-on: ubuntu-latest
     steps:
     - name: Check out repo
@@ -15,7 +15,7 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-  train-model:
+  - job: train-model
     dependsOn: train
     runs-on: ubuntu-latest
     steps:
