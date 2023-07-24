@@ -1,4 +1,9 @@
 name: Pull Request Run
 on: [pull_request]
-run: |
-  echo "Will add code checks here in next challenge"
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run echo
+      run: |
+        echo "Will add code checks here in next challenge"
