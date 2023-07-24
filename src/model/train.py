@@ -68,7 +68,7 @@ def parse_args():
     # return args
     return args
 
-# run script
+# run script tmp
 
 
 if __name__ == "__main__":
