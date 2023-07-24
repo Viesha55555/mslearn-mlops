@@ -4,7 +4,7 @@ import argparse
 import glob
 import os
 import pandas as pd
-import numpy as np
+
 from sklearn.model_selection import train_test_split
 import mlflow as mlflow
 
@@ -13,7 +13,7 @@ from sklearn.linear_model import LogisticRegression
 
 # define functions
 def main(args):
-    # TO DO: enable autologging
+    # TO DO: enable autologging yia
     mlflow.autolog()
 
     # read data
@@ -39,17 +39,17 @@ def get_csvs_df(path):
 def split_data(df):
     # split data
     if df.empty:
-        raise RuntimeError(f"No dataframe provided. Beep boop bop..")
-        
-    X, y = df[['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']].values, df['Diabetic'].values
-
-
-#(array([0, 1], dtype=int64), array([6656, 3344], dtype=int64))
+        raise RuntimeError("No dataframe provided. Beep boop bop..")
+    X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
+               'TricepsThickness', 'SerumInsulin', 'BMI',
+               'DiabetesPedigree', 'Age']].values, df['Diabetic'].values
     return train_test_split(X, y, test_size=0.30, random_state=0)
+
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
     LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
+# comment here
 
 
 def parse_args():
@@ -68,7 +68,9 @@ def parse_args():
     # return args
     return args
 
-# run script
+# run script tmp
+
+
 if __name__ == "__main__":
     # add space in logs
     print("\n\n")
