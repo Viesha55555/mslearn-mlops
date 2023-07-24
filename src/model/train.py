@@ -13,7 +13,7 @@ from sklearn.linear_model import LogisticRegression
 
 # define functions
 def main(args):
-    # TO DO: enable autologging yi
+    # TO DO: enable autologging yia
     mlflow.autolog()
 
     # read data
