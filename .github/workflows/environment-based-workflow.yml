@@ -37,5 +37,6 @@ jobs:
         az ml job create --file 'src/job-prod.yml' --resource-group 'rg-ml-prod' --workspace-name 'amlw-workspace-prod'
     - name: Register and deploy model
       run: |
-        az ml model register -n 'azml-model-prod' --asset-path outputs/model.pkl --experiment-name 'aml-deploy-prod' -l
+        az ml model create --name 'azml-model-prod' --version 1 --path 'azureml://jobs/azmlexperimentjob/outputs/artifacts/paths/model/' --resource-group 'rg-ml-prod' --workspace-name 'amlw-workspace-prod'
+
 
