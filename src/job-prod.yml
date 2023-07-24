@@ -7,9 +7,9 @@ command: >-
 inputs:
   training_data: 
     type: uri_folder 
-    path: azureml:diabetes-dev-folder:2
+    path: azureml:diabetes-prod-folder:1
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: aml-computecluster-test
-experiment_name: aml-deploy-test
-description: Test job
+compute: aml-compute-prod
+experiment_name: aml-deploy-prod
+description: Prod job
