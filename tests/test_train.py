@@ -1,5 +1,4 @@
 from model.train import get_csvs_df
-from sklearn.model_selection import train_test_split
 import os
 import pytest
 
