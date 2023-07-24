@@ -40,9 +40,8 @@ def split_data(df):
     # split data
     if df.empty:
         raise RuntimeError("No dataframe provided. Beep boop bop..")
-        
     X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
-               'TricepsThickness', 'SerumInsulin', 'BMI', 
+               'TricepsThickness', 'SerumInsulin', 'BMI',
                'DiabetesPedigree', 'Age']].values, df['Diabetic'].values
     return train_test_split(X, y, test_size=0.30, random_state=0)
 
