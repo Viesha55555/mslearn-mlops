@@ -35,7 +35,7 @@ def get_csvs_df(path):
     return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
 
-# TO DO: add function to split data
+# TO DO: remove to do
 def split_data(df):
     # split data
     if df.empty:
