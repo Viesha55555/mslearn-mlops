@@ -26,6 +26,9 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip pytest pandas sklearn
+    - name: Install dependencies
+      run: |
+        python -m pip install sklearn
     - name: Test with pytest
       run: |
         pytest
