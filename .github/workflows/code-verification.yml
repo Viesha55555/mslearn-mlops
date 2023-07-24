@@ -25,7 +25,7 @@ jobs:
         flake8 src/model/
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip pytest pandas scikit-learn
+        python -m pip install --upgrade pip pytest pandas scikit-learn mlflow
     - name: Test with pytest
       run: |
         pytest
