@@ -35,8 +35,9 @@ jobs:
     - name: Trigger Azure Machine Learning job
       run: |
         az ml job create --file 'src/job-prod.yml' --resource-group 'rg-ml-prod' --workspace-name 'amlw-workspace-prod'
-    - name: Register and deploy model
+    - name: Register model
       run: |
         az ml model create --name 'azml-model-prod' --version 1 --path 'azureml://jobs/azmlexperimentjob/outputs/artifacts/paths/model/' --resource-group 'rg-ml-prod' --workspace-name 'amlw-workspace-prod'
-
-
+    - name: Deploy model
+      run: |
+        az ml online-deployment create --file 'src/deployment.yml' --resource-group 'rg-ml-prod'  -w 'amlw-workspace-prod' --all-traffic
